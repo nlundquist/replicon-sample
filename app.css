@@ -1,0 +1,37 @@
+.list-group:last-child {
+  margin-bottom: 3px; }
+
+.table:last-child {
+  margin-bottom: 0; }
+
+.employees.panel {
+  max-height: 300px; }
+
+.calendar {
+  table-layout: fixed;
+  width: 100%; }
+  .calendar th {
+    text-align: center;
+    overflow: hidden; }
+  .calendar td.day {
+    width: calc(100% / 7);
+    padding-bottom: calc(100% / 8) !important;
+    font-size: 24pt;
+    text-align: center;
+    position: relative; }
+    .calendar td.day .date {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 5px 0 0 10px;
+      font-size: 12pt;
+      opacity: .5; }
+    .calendar td.day .glyphicon {
+      position: absolute !important;
+      top: calc(50% - 16px);
+      left: calc(50% - 16px); }
+
+.controls {
+  width: 100%; }
+
+/*# sourceMappingURL=app.css.map */
