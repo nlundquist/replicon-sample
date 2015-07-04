@@ -26,9 +26,6 @@
    If I was doing this at a broader scale I'd have a very different file hierarchy and use a module loader
    such as RequireJS or StealJS.
 
-   Typically I wouldn't commit generated JS and CSS to the code repo, however as this is being hosted on
-   GitHub pages, in the interest of simplicty I've foregone a more involved deployment process.
-
    * Assumptions:
       * Need to staff 7 days a week
       * Statuory holidays are a future requirement rather than an unspoken one
