@@ -6,7 +6,7 @@
 
    Displays an interface displaying the days an employee works in the calculated solution.
 
-   Run by opening index.html. Comes with SCSS & Coffeescript already compiled.
+   Run by opening index.html. 'gh-pages' branch comes with SCSS & Coffeescript already compiled.
 
    * Uses CoffeeScript for list comprehensions, destructuring assignment & lightweight function syntax.
    * Uses ES6 for Array prototype extensions, Promise, etc. via ES6-shim library.
