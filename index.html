@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.32.2/es6-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app.css">
+    <meta charset="utf-8">
+    <title>Replicon Example App</title>
+</head>
+<body class="container">
+<h1>Nils's Time Tool</h1>
+<div class="row">
+    <div class="col-md-4">
+        <div class="employees panel panel-default">
+            <div class="panel-heading"><b>Employees</b></div>
+            <div class="panel-body">
+                <ul class="list-group" data-bind="foreach: employees">
+                    <li class="list-group-item" data-bind="
+                        text: model.name,
+                        click: select,
+                        css: {
+                            active: $parent.active_employee() === $data
+                        }">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8" data-bind="with: active_employee">
+        <div class="details panel panel-default">
+            <div class="panel-heading">
+                <b>Schedule:</b> <span data-bind="text: model.name"></span>
+            </div>
+            <div class="panel-body">
+                <table class="calendar table table-bordered">
+                    <tr class="header" data-bind="with: $parent.weeks">
+                        <th class="active" colspan="7" data-bind="text: $data[1].start.format('MMMM')"></th>
+                    </tr>
+                    <tr class="header">
+                        <th class="day active">Monday</th>
+                        <th class="day active">Tuesday</th>
+                        <th class="day active">Wednesday</th>
+                        <th class="day active">Thursday</th>
+                        <th class="day active">Friday</th>
+                        <th class="day active">Saturday</th>
+                        <th class="day active">Sunday</th>
+                    </tr>
+                    <!-- ko foreach: $parent.weeks -->
+                    <tr class="week" data-bind="foreach: days">
+                        <!-- ko if: $parents[1].works($data) -->
+                        <td class="day warning">
+                            <span class="date" data-bind="text: date()"></span>
+                            <span class="glyphicon glyphicon-ok-circle"></span>
+                        </td>
+                        <!-- /ko -->
+                        <!-- ko if: $parents[1].off($data) -->
+                        <td class="day info">
+                            <span class="date" data-bind="text: date()"></span>
+                            <span class="glyphicon glyphicon-remove-circle"></span>
+                        </td>
+                        <!-- /ko -->
+                        <!-- ko if: !$parents[1].off($data) && !$parents[1].works($data) -->
+                        <td class="day">
+                            <span class="date" data-bind="text: date()"></span>
+                        </td>
+                        <!-- /ko -->
+                    </tr>
+                    <!-- /ko -->
+                </table>
+            </div>
+        </div>
+
+        <div class="controls btn-group btn-group-vertical" data-bind="with: $parent.solution()">
+            <button class="btn btn-success" data-bind="click: submit">Submit Solution</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
