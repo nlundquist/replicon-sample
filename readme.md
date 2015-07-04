@@ -13,6 +13,7 @@
    * Uses Moment.js for date manipulations and comparisons.
    * Uses Knockout.js for view layer & observable implementations used in view models.
 
+
    Included in this solution are a simple reuseable model layer implementation (using promise wrapped native XHR),
    an extension to Knockout observables to support a promise interface, and promise based view model 'factory'
    helper.
